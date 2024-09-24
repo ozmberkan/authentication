@@ -67,6 +67,7 @@ const Register = () => {
                 />
                 {input.type === "password" && (
                   <button
+                    type="button"
                     onClick={() => setShow(!show)}
                     className="absolute right-3 top-3 text-neutral-700"
                   >

@@ -49,6 +49,7 @@ const register = async (req, res) => {
       user: newUser,
       userToken,
     });
+    console.log("✅ - Kayıt Servisi Çalıştı!");
   } catch (error) {
     return res.status(500).json({
       message:
@@ -86,6 +87,7 @@ const login = async (req, res) => {
       user,
       userToken,
     });
+    console.log("✅ - Giriş Servisi Çalıştı!");
   } catch (error) {
     return res.status(500).json({
       message:
