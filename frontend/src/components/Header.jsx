@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { tabLinks } from "../data/data";
 
 const Header = () => {
   const { user } = useSelector((store) => store.user);
@@ -11,24 +12,23 @@ const Header = () => {
   return (
     <div className="w-full py-4 border-b border flex justify-between items-center px-6">
       <div className="flex items-center gap-x-4">
-        <Link
-          className="bg-yellow-100 text-yellow-500 font-semibold py-1 rounded-md px-4"
-          to="/"
-        >
-          Anasayfa
-        </Link>
-        <Link
-          className="bg-yellow-100 text-yellow-500 font-semibold py-1 rounded-md px-4"
-          to="/register"
-        >
-          Kayıt Ol
-        </Link>
-        <Link
-          className="bg-yellow-100 text-yellow-500 font-semibold py-1 rounded-md px-4"
-          to="/login"
-        >
-          Giriş Yap
-        </Link>
+        {user && (
+          <Link
+            className="bg-white border hover:ring-2 ring-black transition-all duration-500 font-semibold py-1 rounded-md px-4"
+            to="/"
+          >
+            Anasayfa
+          </Link>
+        )}
+        {tabLinks.map((link) => (
+          <Link
+            key={link.id}
+            className="bg-white border hover:ring-2 ring-black transition-all duration-500 font-semibold py-1 rounded-md px-4"
+            to={link.to}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
       {user && (
         <button

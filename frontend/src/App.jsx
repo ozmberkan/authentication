@@ -20,15 +20,15 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: user ? <Home /> : <Navigate to="/login" />,
+          element: user ? <Home /> : <Navigate to="/register" />,
         },
         {
           path: "/register",
-          element: !user ? <Register /> : <Navigate to="/" />,
+          element: <Register />,
         },
         {
           path: "/login",
-          element: !user ? <Login /> : <Navigate to="/" />,
+          element: <Login />,
         },
       ],
     },
